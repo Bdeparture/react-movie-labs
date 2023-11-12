@@ -5,6 +5,8 @@ import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 
+
+
 const UpcomingMoviesPage = (props) => {
 
   const {  data, error, isLoading, isError }  = useQuery('discover', getUpcomingMovies)
