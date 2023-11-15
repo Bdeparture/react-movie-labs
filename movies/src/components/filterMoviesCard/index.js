@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { getGenres } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
@@ -42,7 +41,7 @@ export default function FilterMoviesCard(props) {
     props.onUserInput(type, value); // NEW
   };
 
-  const handleTextChange = (e, props) => {
+  const handleTextChange = (e) => {
     handleChange(e, "name", e.target.value);
   };
 
