@@ -18,4 +18,5 @@ bundle_app:
   stage: build
   script:
     - cd movies
+    - npm install react-scripts --save
     - npm run build
