@@ -46,9 +46,10 @@ bundle_app:
 
 e2etest:
 # Node docker image with Cypress and Chrome pre-installed
-stage: test
-image:  cypress/browsers:node18.12.0-chrome106-ff106
-script:
-  - echo "Run tests in headless mode"
-  - npx serve -s ./build  -l 3000  &
-  - npx cypress run --browser chrome
+  stage: test
+  image:  cypress/browsers:node18.12.0-chrome106-ff106
+  script:
+    - cd movies
+    - echo "Run tests in headless mode"
+    - npx serve -s ./build  -l 3000  &
+    - npx cypress run --browser chrome > cypress_log.txt
