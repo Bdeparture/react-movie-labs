@@ -27,7 +27,10 @@ install_dependencies:
 
 # Jobs 
 install_dependencies:
-  stage: install
+  stages:
+    - install
+    - build
+    - test
   script:
     - npm ci
   artifacts:
@@ -40,3 +43,12 @@ bundle_app:
     - cd movies
     - npm install react-scripts --save
     - npm run build
+
+e2etest:
+# Node docker image with Cypress and Chrome pre-installed
+stage: test
+image:  cypress/browsers:node18.12.0-chrome106-ff106
+script:
+  - echo "Run tests in headless mode"
+  - npx serve -s ./build  -l 3000  &
+  - npx cypress run --browser chrome
